@@ -1,0 +1,34 @@
+<div class="col-xs-12">
+  <h1 class="h1-registreren">Registreren</h1>
+</div>
+<form class="form-registration" [formGroup]="signupForm" (ngSubmit)="signup()" novalidate>
+    <div class="col-xs-12">
+        <label>Naam</label>
+        <input  class="form-control"  placeholder="Naam" formControlName="name">
+    </div>
+    <div class="col-xs-12">
+        <label>Email</label>
+        <input  class="form-control" placeholder="Email" formControlName="email">
+    </div>
+    <div class="col-xs-12">
+      <label>Postcode</label>
+      <input  class="form-control" placeholder="Postcode" formControlName="postcode">
+    </div>
+    <div class="col-xs-12">
+      <label>Straat en huisnummer</label>
+      <input  class="form-control" placeholder="Straat en huisnummer" formControlName="street">
+    </div>
+    <div class="col-xs-12">
+        <label>Wachtwoord</label>
+        <input  class="form-control"  type="password" placeholder="wachtwoord" formControlName="password">
+    </div>
+    <div class="col-xs-12">
+        <button class="btn btn-primary registration-button" [disabled]="!signupForm.valid" type="submit">
+          <span>Sign up</span>
+        </button>
+      <p *ngIf="showErrormessage" class="error-message-login">
+        Foute inloggegevens. Probeer opnieuw!
+      </p>
+    </div>
+</form>
+

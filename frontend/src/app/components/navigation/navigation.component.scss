@@ -1,0 +1,125 @@
+.header {
+  background: #6699ff;
+  border-bottom:1px solid #000;
+}
+h1.logo {
+  margin-top: 10px;
+  margin-bottom: 0px;
+  color:#fff;
+}
+.navbar {
+  z-index: 99;
+}
+.navbar-default {
+  margin: 0;
+  padding: 0;
+  background: #6699ff;
+  border-radius: 0;
+  border: none;
+  z-index: 999;
+}
+/* Menu Link */
+.navbar-default .navbar-nav > li > a {
+  color:white;
+  text-align: center;
+  border-left: 1px solid #000;
+  font-size:15px;
+  transition:all 0.3s ease;
+}
+.navbar-default .navbar-nav > li:first-child a {
+  border-left: none;
+}
+/* Menu Link Hover & Active*/
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus,
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus,
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:focus,
+.navbar-default .navbar-nav > .open > a:hover {
+  background-color: #E8F0FE;
+  color: #000;
+}
+/* Menu icon*/
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #fff;
+}
+.navbar-default .navbar-toggle:focus,
+.navbar-default .navbar-toggle:hover {
+  background-color:  transparent;
+}
+.navbar-default .navbar-toggle {
+  border-color: #fff;
+}
+@media (max-width: 767px) {
+  /* Setup */
+  body { padding-top: 50px }
+  .navbar-xs {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+  }
+  /* Background */
+  .navbar-default .navbar-header {
+    background: #6699ff;
+  }
+  /* Brand */
+  .navbar-default .navbar-brand,
+  .navbar-default .navbar-brand:hover {
+    color: #fff;
+  }
+  /* Collapse */
+  .navbar-default .navbar-nav {
+    margin-top: 0;
+    margin-bottom: 0;
+    border-bottom: 1px solid #000;
+    background-color: #6699ff;
+  }
+  .navbar-default .navbar-collapse {
+    border: none;
+    color: #fff;
+  }
+  /* Menu Link */
+  .navbar-default .navbar-nav > li > a {
+    border: none;
+    border-top: 1px solid #000;
+  }
+  /* Dropdown */
+  .navbar-nav .open .dropdown-menu {
+    padding: 0;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    background: dimgray;
+    color: #fff;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus,
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {
+    color: #fff;
+  }
+  /* Menu links */
+  .navbar-default .navbar-nav > li a {
+    text-align: center;
+  }
+}
+@media (min-width: 768px) {
+  /* Setup */
+  .navbar-nav {
+    width: 100%;
+    display: table;
+  }
+  .navbar-nav > li {
+    float: none;
+    display: table-cell;
+  }
+  nav .navbar-collapse {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  nav .container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

@@ -1,0 +1,41 @@
+<div class="header">
+  <div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-4">
+          <h1 class="logo">Flowerpower</h1>
+        </div>
+      <div class="col-xs-12 col-sm-8">
+        <nav class="navbar navbar-default navbar-xs">
+          <div class="navbar-header visible-xs">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Fowerpower</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li data-active-if="Home">
+                <a routerLink="/"><span>Social Posts</span></a>
+              </li>
+              <li data-active-if="autolijst_background">
+                <a *ngIf="isAuthenticated" routerLinkActive="active-link" routerLink="/products">Posts</a>
+              </li>
+              <li data-active-if="Auto-Inkoop">
+                <a *ngIf="!isAuthenticated" routerLinkActive="active-link" routerLink="/login">Login</a>
+              </li>
+              <li data-active-if="Contact">
+                <a *ngIf="isAuthenticated" (click)="logout()" routerLinkActive="active-link" routerLink="/login">Logout</a>
+              </li>
+              <li data-active-if="Contact">
+                <a *ngIf="!isAuthenticated" routerLinkActive="active-link" routerLink="/signup">Signup</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>

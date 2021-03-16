@@ -1,0 +1,24 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+h1.h1-inloggen,
+h1.h1-registreren{
+  margin-top: 30px;
+}
+.login-button,
+.registration-button{
+  margin-top: 30px;
+  width: 200px;
+}
+form.form-login label,
+form.form-registration label{
+  margin-top: 20px;
+}
+p.error-message-login {
+  margin-top: 30px;
+  color: red;
+  font-weight: bold;
+  font-size: 15px;
+}
