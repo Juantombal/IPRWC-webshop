@@ -20,16 +20,16 @@
               <li data-active-if="Home">
                 <a routerLink="/"><span>Social Posts</span></a>
               </li>
-              <li data-active-if="autolijst_background">
-                <a *ngIf="isAuthenticated" routerLinkActive="active-link" routerLink="/products">Posts</a>
+              <li data-active-if="Products">
+                <a routerLinkActive="active-link" routerLink="/products">Products</a>
               </li>
-              <li data-active-if="Auto-Inkoop">
+              <li data-active-if="Login">
                 <a *ngIf="!isAuthenticated" routerLinkActive="active-link" routerLink="/login">Login</a>
               </li>
-              <li data-active-if="Contact">
+              <li data-active-if="Logout">
                 <a *ngIf="isAuthenticated" (click)="logout()" routerLinkActive="active-link" routerLink="/login">Logout</a>
               </li>
-              <li data-active-if="Contact">
+              <li data-active-if="Signup">
                 <a *ngIf="!isAuthenticated" routerLinkActive="active-link" routerLink="/signup">Signup</a>
               </li>
             </ul>

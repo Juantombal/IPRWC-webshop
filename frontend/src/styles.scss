@@ -3,9 +3,9 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-h1.h1-inloggen,
-h1.h1-registreren{
+.margin-top-bottom {
   margin-top: 30px;
+  margin-bottom: 30px;
 }
 .login-button,
 .registration-button{

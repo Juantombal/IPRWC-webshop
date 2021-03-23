@@ -1,1 +1,23 @@
-<p>products works!</p>
+
+<div *ngFor="let product of products$ | async" class="col-xs-12 col-md-4">
+  <figure class="products">
+    <div class="product-image">
+      <img src="{{ product.image }}" alt="boeket" width="100%">
+    </div>
+    <div class="product-title">
+      <h2>{{ product.title }}</h2>
+    </div>
+    <div class="product-description">
+      {{ product.description }}
+    </div>
+    <div class="product-price">
+      <p>Prijs: {{ product.price }} €</p>
+    </div>
+    <div class="product-winkelmandje">
+      <button class="btn btn-primary winkelmandje-button" type="submit">
+        <span>In winkelmand</span>
+      </button>
+    </div>
+  </figure>
+</div>
+
