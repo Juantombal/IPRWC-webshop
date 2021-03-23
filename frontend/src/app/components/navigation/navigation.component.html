@@ -18,10 +18,10 @@
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
               <li data-active-if="Home">
-                <a routerLink="/"><span>Social Posts</span></a>
+                <a routerLink="/"><span>Home</span></a>
               </li>
               <li data-active-if="Products">
-                <a routerLinkActive="active-link" routerLink="/products">Products</a>
+                <a routerLinkActive="active-link" routerLink="/products">Producten</a>
               </li>
               <li data-active-if="Login">
                 <a *ngIf="!isAuthenticated" routerLinkActive="active-link" routerLink="/login">Login</a>
@@ -30,7 +30,7 @@
                 <a *ngIf="isAuthenticated" (click)="logout()" routerLinkActive="active-link" routerLink="/login">Logout</a>
               </li>
               <li data-active-if="Signup">
-                <a *ngIf="!isAuthenticated" routerLinkActive="active-link" routerLink="/signup">Signup</a>
+                <a *ngIf="!isAuthenticated" routerLinkActive="active-link" routerLink="/signup">Registreren</a>
               </li>
             </ul>
           </div>
