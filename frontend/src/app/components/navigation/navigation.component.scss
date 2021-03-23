@@ -1,6 +1,13 @@
 .header {
-  background: #6699ff;
+  background: #23527c;
   border-bottom:1px solid #000;
+}
+h1.logo a {
+  color: white;
+}
+h1.logo a:hover,
+h1.logo a:active{
+  text-decoration: none;
 }
 h1.logo {
   margin-top: 10px;
@@ -13,7 +20,7 @@ h1.logo {
 .navbar-default {
   margin: 0;
   padding: 0;
-  background: #6699ff;
+  background: #23527c;
   border-radius: 0;
   border: none;
   z-index: 999;
@@ -38,8 +45,8 @@ h1.logo {
 .navbar-default .navbar-nav > .open > a,
 .navbar-default .navbar-nav > .open > a:focus,
 .navbar-default .navbar-nav > .open > a:hover {
-  background-color: #E8F0FE;
-  color: #000;
+  background-color: #3272b8;
+  color: white;
 }
 /* Menu icon*/
 .navbar-default .navbar-toggle .icon-bar {

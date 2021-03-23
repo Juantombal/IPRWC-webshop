@@ -22,3 +22,9 @@ p.error-message-login {
   font-weight: bold;
   font-size: 15px;
 }
+@media (max-width:767px) {
+  .login-button,
+  .registration-button{
+    width: 100%;
+  }
+}
