@@ -21,6 +21,7 @@ import { HomeComponent } from './components/home/home.component';
 
 import { AuthInterceptorService } from './services/auth-interceptor.service';
 import { ProductsComponent } from './components/products/products.component';
+import { ShoppingcartComponent } from './components/shoppingcart/shoppingcart.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { ProductsComponent } from './components/products/products.component';
     LoginComponent,
     HomeComponent,
     ProductsComponent,
+    ShoppingcartComponent,
   ],
   imports: [
     BrowserModule,

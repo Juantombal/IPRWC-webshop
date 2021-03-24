@@ -26,6 +26,9 @@
               <li data-active-if="Login">
                 <a *ngIf="!isAuthenticated" routerLinkActive="active-link" routerLink="/login">Login</a>
               </li>
+              <li data-active-if="Winkelmandje">
+                <a *ngIf="isAuthenticated" routerLinkActive="active-link" routerLink="/shoppingcart">Winkelmand</a>
+              </li>
               <li data-active-if="Logout">
                 <a *ngIf="isAuthenticated" (click)="logout()" routerLinkActive="active-link" routerLink="/login">Logout</a>
               </li>

@@ -7,10 +7,12 @@ import { HomeComponent } from './components/home/home.component';
 import { ProductsComponent } from './components/products/products.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
+import {ShoppingcartComponent} from './components/shoppingcart/shoppingcart.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'products', component: ProductsComponent, }, // canActivate: [AuthGuard]
+  { path: 'products', component: ProductsComponent }, // canActivate: [AuthGuard]
+  { path: 'shoppingcart', component: ShoppingcartComponent , canActivate: [AuthGuard]},
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: '**', redirectTo: '' },
