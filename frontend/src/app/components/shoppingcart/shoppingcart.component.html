@@ -1,1 +1,23 @@
-<p>shoppingcart works!</p>
+
+<div *ngFor="let order of orders$ | async" class="col-xs-12">
+  <div *ngIf="order.user === userId">
+    <div class="row">
+      <figure class="shopping-cart">
+        <div class="col-xs-12 col-md-2 shopping-cart-image">
+          <img src="{{ order.image }}" alt="boeket" width="100%">
+        </div>
+        <div class="col-xs-12 col-md-6 shopping-cart-title">
+          <h2>{{ order.title }}</h2>
+          <p> Aantal: {{ order.quantity }}</p>
+        </div>
+        <div class="col-xs-12 col-md-4 shopping-cart-price">
+          {{ order.price }}
+        </div>
+        <button mat-icon-button>
+          <mat-icon (click)="delete(order.id)" color="warn">delete</mat-icon>
+        </button>
+      </figure>
+    </div>
+  </div>
+</div>
+

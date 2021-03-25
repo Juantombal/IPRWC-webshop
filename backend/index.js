@@ -8,6 +8,8 @@ const errorController = require('./controllers/error');
 
 const productsRoutes = require('./routes/product');
 
+const ordersRoutes = require('./routes/order');
+
 const app = express();
 
 const ports = process.env.PORT || 3000;
@@ -33,6 +35,8 @@ app.use((req, res, next) => {
 app.use('/auth', authRoutes);
 
 app.use('/product', productsRoutes);
+
+app.use('/order', ordersRoutes);
 
 app.use(errorController.get404);
 
