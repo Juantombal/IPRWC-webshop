@@ -22,6 +22,9 @@ import { HomeComponent } from './components/home/home.component';
 import { AuthInterceptorService } from './services/auth-interceptor.service';
 import { ProductsComponent } from './components/products/products.component';
 import { ShoppingcartComponent } from './components/shoppingcart/shoppingcart.component';
+import { ConfirmModalComponent } from './components/confirm-modal/confirm-modal.component';
+import {MatDialogModule} from "@angular/material/dialog";
+
 
 @NgModule({
   declarations: [
@@ -32,20 +35,22 @@ import { ShoppingcartComponent } from './components/shoppingcart/shoppingcart.co
     HomeComponent,
     ProductsComponent,
     ShoppingcartComponent,
+    ConfirmModalComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    NoopAnimationsModule,
-    MatButtonModule,
-    MatCardModule,
-    MatIconModule,
-    MatInputModule,
-    MatListModule,
-    MatToolbarModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        NoopAnimationsModule,
+        MatButtonModule,
+        MatCardModule,
+        MatIconModule,
+        MatInputModule,
+        MatListModule,
+        MatToolbarModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        MatDialogModule,
+    ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,

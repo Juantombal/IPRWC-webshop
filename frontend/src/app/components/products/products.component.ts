@@ -9,7 +9,8 @@ import {Order} from '../../models/Order';
 import {first} from 'rxjs/operators';
 import {OrderService} from '../../services/order.service';
 import {AuthService} from '../../services/auth.service';
-
+import {MatDialog} from '@angular/material/dialog';
+import {ConfirmModalComponent} from '../confirm-modal/confirm-modal.component';
 
 @Component({
   selector: 'app-products',
@@ -19,26 +20,36 @@ import {AuthService} from '../../services/auth.service';
 export class ProductsComponent implements OnInit {
   @Output() create: EventEmitter<any> = new EventEmitter();
   products$: Observable<Product[]>;
+  isAuthenticated = false;
 
   constructor(
     private productService: ProductService,
     private orderService: OrderService,
-    private authService: AuthService
+    private authService: AuthService,
+    public dialog: MatDialog,
   ) {}
 
   ngOnInit(): void {
     this.products$ = this.fetchAll();
+    this.authService.isUserLoggedIn$.subscribe((isLoggedIn) => {
+      this.isAuthenticated = isLoggedIn;
+    });
   }
   fetchAll(): Observable<Product[]> {
     return this.productService.fetchAll();
   }
 
-  onSubmit(formData: Partial<Order>): void {
-    this.orderService
-      .createOrder(formData, this.authService.userId)
-      .pipe(first())
-      .subscribe(() => {
-        this.create.emit(null);
-      });
+  addToShoppingCart(formData: Partial<Order>): void {
+    if (!this.isAuthenticated) {
+      this.dialog.open(ConfirmModalComponent);
+
+    } else {
+      this.orderService
+        .addtoShoppingCart(formData, this.authService.userId)
+        .pipe(first())
+        .subscribe(() => {
+          this.create.emit(null);
+        });
+    }
   }
 }

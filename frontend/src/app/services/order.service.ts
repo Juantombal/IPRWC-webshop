@@ -31,7 +31,7 @@ export class OrderService {
       );
   }
 
-  createOrder(formData: Partial<Order>, userId: Pick<User, 'id'>): Observable<Order> {
+  addtoShoppingCart(formData: Partial<Order>, userId: Pick<User, 'id'>): Observable<Order> {
     return this.http
       .post<Order>(
         this.url,
@@ -39,7 +39,7 @@ export class OrderService {
         this.httpOptions
       )
       .pipe(
-        catchError(this.errorHandlerService.handleError<Order>('createOrder'))
+        catchError(this.errorHandlerService.handleError<Order>('addToShoppingCart'))
       );
   }
 
