@@ -3,7 +3,6 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { AuthService } from 'src/app/services/auth.service';
-import {HttpErrorResponse} from '@angular/common/http';
 
 @Component({
   selector: 'app-signup',
@@ -12,8 +11,6 @@ import {HttpErrorResponse} from '@angular/common/http';
 })
 export class SignupComponent implements OnInit {
   signupForm: FormGroup;
-  public showErrormessage = false;
-
   constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {
@@ -37,8 +34,6 @@ export class SignupComponent implements OnInit {
     this.authService.signup(this.signupForm.value).subscribe((msg) => {
       console.log(msg);
       this.router.navigate(['login']);
-    }, (error: HttpErrorResponse) => {
-      this.showErrormessage = true;
     });
   }
 }

@@ -9,8 +9,8 @@ module.exports = class Order {
         this.quantity = quantity;
     }
 
-    static fetchAll() {
-        return db.execute('SELECT * FROM orders');
+    static fetchAll(id) {
+        return db.execute('SELECT * FROM orders WHERE user = ?', [id]);
     }
 
     static save(order) {

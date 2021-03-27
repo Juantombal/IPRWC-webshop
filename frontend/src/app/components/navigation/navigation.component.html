@@ -30,7 +30,7 @@
                 <a *ngIf="isAuthenticated" routerLinkActive="active-link" routerLink="/shoppingcart">Winkelmand</a>
               </li>
               <li data-active-if="Logout">
-                <a *ngIf="isAuthenticated" (click)="logout()" routerLinkActive="active-link" routerLink="/login">Logout</a>
+                <a *ngIf="isAuthenticated" (click)="logout()" routerLinkActive="active-link">Logout</a>
               </li>
               <li data-active-if="Signup">
                 <a *ngIf="!isAuthenticated" routerLinkActive="active-link" routerLink="/signup">Registreren</a>

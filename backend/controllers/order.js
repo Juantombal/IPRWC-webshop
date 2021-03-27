@@ -4,7 +4,7 @@ const Order = require('../models/order');
 
 exports.fetchAll = async (req, res, next) => {
     try {
-        const [allOrders] = await Order.fetchAll();
+        const [allOrders] = await Order.fetchAll(req.params.id);
         res.status(200).json(allOrders);
     } catch (err) {
         if (!err.statusCode) {

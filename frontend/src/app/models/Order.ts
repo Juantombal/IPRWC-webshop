@@ -1,8 +1,8 @@
-export interface Order {
+export class Order {
   id: number;
   title: string;
   image: string;
   price: number;
-  user: string;
+  user: number;
   quantity: number;
 }

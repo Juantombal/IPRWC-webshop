@@ -1,6 +1,4 @@
-
 <div *ngFor="let order of orders$ | async" class="col-xs-12">
-  <div *ngIf="order.user === userId">
     <div class="row">
       <figure class="shopping-cart">
         <div class="col-xs-12 col-md-2 shopping-cart-image">
@@ -11,13 +9,12 @@
           <p> Aantal: {{ order.quantity }}</p>
         </div>
         <div class="col-xs-12 col-md-4 shopping-cart-price">
-          {{ order.price }}
+          {{ order.price * order.quantity}}
         </div>
         <button mat-icon-button>
           <mat-icon (click)="delete(order.id)" color="warn">delete</mat-icon>
         </button>
       </figure>
     </div>
-  </div>
 </div>
 

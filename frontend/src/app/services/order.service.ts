@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
-import { catchError, first } from 'rxjs/operators';
+import {catchError, first, tap} from 'rxjs/operators';
 
 import { Order } from '../models/Order';
 import { User } from '../models/User';
@@ -23,11 +23,11 @@ export class OrderService {
     private errorHandlerService: ErrorHandlerService
   ) {}
 
-  fetchAll(): Observable<Order[]> {
+  fetchAll(userId: Pick<User, 'id'>): Observable<Order[]> {
     return this.http
-      .get<Order[]>(this.url, { responseType: 'json' })
+      .get<Order[]>(`${this.url}/${userId}`, { responseType: 'json' })
       .pipe(
-        catchError(this.errorHandlerService.handleError<Order[]>('fetchAll', []))
+        catchError(this.errorHandlerService.handleError<Order[]>('fetchAll', [])),
       );
   }
 
