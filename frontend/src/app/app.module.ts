@@ -22,8 +22,9 @@ import { HomeComponent } from './components/home/home.component';
 import { AuthInterceptorService } from './services/auth-interceptor.service';
 import { ProductsComponent } from './components/products/products.component';
 import { ShoppingcartComponent } from './components/shoppingcart/shoppingcart.component';
-import { ConfirmModalComponent } from './components/confirm-modal/confirm-modal.component';
+import { ConfirmModalComponent } from './components/modal/confirm-modal/confirm-modal.component';
 import {MatDialogModule} from "@angular/material/dialog";
+import { PayModalComponent } from './components/modal/pay-modal/pay-modal.component';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import {MatDialogModule} from "@angular/material/dialog";
     ProductsComponent,
     ShoppingcartComponent,
     ConfirmModalComponent,
+    PayModalComponent,
   ],
     imports: [
         BrowserModule,

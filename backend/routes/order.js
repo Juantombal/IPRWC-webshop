@@ -1,3 +1,5 @@
+const Order = require('../models/order');
+
 const express = require('express');
 
 const { body } = require('express-validator');
@@ -8,7 +10,9 @@ const auth = require('../middleware/auth');
 
 const router = express.Router();
 
-router.get('/:id', auth, orderController.fetchAll);
+router.get('/:id', auth, orderController.getOrder);
+
+router.get('/price/:id', auth, orderController.getTotalPrice);
 
 router.post(
     '/',
@@ -23,6 +27,8 @@ router.post(
     orderController.postOrder
 );
 
-router.delete('/:id', auth, orderController.deleteOrder);
+router.delete('/:id', auth,  orderController.delete);
+
+router.put('/:id', auth,  orderController.update);
 
 module.exports = router;

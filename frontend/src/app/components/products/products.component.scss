@@ -10,8 +10,32 @@
   font-weight: bold;
   margin-top:10px;
 }
+p.text-visible {
+  background: green;
+  border: 1px solid #fff;
+  text-align: center;
+  color: white;
+  width: 220px;
+  border-radius: 5px;
+  position: fixed;
+  z-index: 1000;
+  padding: 10px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  top: 58px;
+  -webkit-animation-name: cssAnimation;
+  -webkit-animation-duration: 2s;
+  animation-name: cssAnimation;
+  animation-duration: 2s
+}
 @media (max-width:991px) {
   .products {
     height: 100%;
   }
+}
+@-webkit-keyframes cssAnimation {
+  0%   {opacity: 1;}
+  50%  {opacity: 1;}
+  100% {opacity: 0;}
 }

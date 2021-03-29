@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
-import {catchError, first, tap} from 'rxjs/operators';
+import {catchError, first, map, tap} from 'rxjs/operators';
 
 import { Order } from '../models/Order';
 import { User } from '../models/User';
@@ -31,6 +31,14 @@ export class OrderService {
       );
   }
 
+  getTotalPrice(userId: Pick<User, 'id'>): any {
+    return this.http
+      .get(`${this.url}/price/${userId}`, { responseType: 'json' })
+      .pipe(
+        catchError(this.errorHandlerService.handleError<Order[]>('fetchAll', [])),
+    );
+  }
+
   addtoShoppingCart(formData: Partial<Order>, userId: Pick<User, 'id'>): Observable<Order> {
     return this.http
       .post<Order>(
@@ -43,12 +51,38 @@ export class OrderService {
       );
   }
 
+  upQuantity(orderId: number): Observable<{}> {
+    return this.http
+      .put<Order>(`${this.url}/${orderId}`, this.httpOptions)
+      .pipe(
+        first(),
+        catchError(this.errorHandlerService.handleError<Order>('deleteOrder'))
+      );
+  }
+
+  downQuantity(orderId: number, buttonNr: number, quantity: number): Observable<{}> {
+    return this.http
+      .put<Order>(`${this.url}/${orderId}`, {buttonNr, quantity}, this.httpOptions)
+      .pipe(
+        first(),
+        catchError(this.errorHandlerService.handleError<Order>('deleteOrder'))
+      );
+  }
   deleteOrder(orderId: number): Observable<{}> {
     return this.http
       .delete<Order>(`${this.url}/${orderId}`, this.httpOptions)
       .pipe(
         first(),
         catchError(this.errorHandlerService.handleError<Order>('deleteOrder'))
+      );
+  }
+
+  deleteAll(userId: Pick<User, 'id'>): Observable<{}> {
+    return this.http
+      .delete<Order>(`${this.url}/${userId}`, this.httpOptions)
+      .pipe(
+        first(),
+        catchError(this.errorHandlerService.handleError<Order>('deleteAll'))
       );
   }
 }

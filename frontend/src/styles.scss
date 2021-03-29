@@ -16,7 +16,8 @@ form.form-login label,
 form.form-registration label{
   margin-top: 20px;
 }
-p.error-message-login {
+p.error-message-login,
+p.error-message-register{
   margin-top: 30px;
   color: red;
   font-weight: bold;

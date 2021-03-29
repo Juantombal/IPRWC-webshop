@@ -8,3 +8,45 @@ figure.shopping-cart {
 .no-records{
   text-align: center;
 }
+.empty-cart{
+  margin-bottom:20px;
+}
+.cart-content-header {
+  border-bottom: 1px solid #000;
+  margin-bottom: 20px;
+}
+.quantity{
+  float: right;
+  margin-top: 12px;
+}
+.button-up,
+.button-down{
+  float:left;
+}
+p.totalprice-p {
+  text-align: center;
+  margin-top: 58px;
+  font-size: 17px;
+}
+.Order-button {
+  margin-top: 48px;
+  width: 145px;
+}
+@media (max-width: 990px) {
+  .row.cart-content-header {
+    text-align: center;
+  }
+  .Order-button {
+    margin-top: 0px;
+  }
+  p.totalprice-p {
+    margin-top: 15px;
+  }
+  .quantity {
+    float: none;
+    text-align: center;
+  }
+  figure.shopping-cart {
+    border-bottom: 1px solid #000;
+  }
+}

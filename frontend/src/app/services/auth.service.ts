@@ -30,11 +30,7 @@ export class AuthService {
 
   signup(user: Omit<User, 'id'>): Observable<User> {
     return this.http
-      .post<User>(`${this.url}/signup`, user, this.httpOptions)
-      .pipe(
-        first(),
-        catchError(this.errorHandlerService.handleError)
-      );
+      .post<User>(`${this.url}/signup`, user, this.httpOptions);
   }
 
   login(email: Pick<User, 'email'>, password: Pick<User, 'password'>): Observable<{

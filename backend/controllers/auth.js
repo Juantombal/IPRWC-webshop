@@ -17,6 +17,14 @@ exports.signup = async (req, res, next) => {
   const password = req.body.password;
 
   try {
+
+    const user = await User.find(email);
+    if (user[0].length > 0) {
+      const okStatus = new Error('Email already exists!');
+      okStatus.statusCode = 500;
+      throw okStatus;
+    }
+
     const hashedPassword = await bcrypt.hash(password, 12);
 
     const userDetails = {

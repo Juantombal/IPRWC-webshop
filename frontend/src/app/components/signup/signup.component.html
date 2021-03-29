@@ -20,6 +20,9 @@
           <button class="btn btn-primary registration-button" [disabled]="!signupForm.valid" type="submit">
             <span>Registreer</span>
           </button>
+          <p *ngIf="showErrormessage" class="error-message-register">
+            Email bestaat al! Kies een andere email.
+          </p>
       </form>
   </div>
 </div>
