@@ -5,6 +5,9 @@
   padding: 20px;
   border-radius: 10px;
 }
+.form-control, {
+  border-radius: 30px;
+}
 
 @media (max-width:991px) {
   .register-form {
