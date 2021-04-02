@@ -14,6 +14,8 @@ const app = express();
 
 const ports = process.env.PORT || 3000;
 
+app.use(express.static('./dist'));
+
 app.use(bodyParser.json());
 
 app.use((req, res, next) => {

@@ -8,6 +8,7 @@ exports.fetchAll = async (req, res, next) => {
         res.status(200).json(allProducts);
     } catch (err) {
         if (!err.statusCode) {
+            console.log("ge");
             err.statusCode = 500;
         }
         next(err);
