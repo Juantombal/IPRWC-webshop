@@ -47,7 +47,7 @@ export class AuthService {
           this.userName = tokenObject.userName;
           localStorage.setItem('token', tokenObject.token);
           this.isUserLoggedIn$.next(true);
-          this.router.navigate(['posts']);
+          this.router.navigate(['product']);
         }),
         catchError(
           this.errorHandlerService.handleError<{

@@ -20,9 +20,9 @@ exports.signup = async (req, res, next) => {
 
     const user = await User.find(email);
     if (user[0].length > 0) {
-      const okStatus = new Error('Email already exists!');
-      okStatus.statusCode = 500;
-      throw okStatus;
+      const errorStatus = new Error('Email already exists!');
+      errorStatus.statusCode = 500;
+      throw errorStatus;
     }
 
     const hashedPassword = await bcrypt.hash(password, 12);
