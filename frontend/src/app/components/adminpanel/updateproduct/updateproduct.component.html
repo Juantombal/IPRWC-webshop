@@ -1,0 +1,48 @@
+
+<div class="col-xs-12 col-md-6">
+  <ng-container *ngIf="product | async as totalObject">
+    <div *ngFor="let objects of totalObject">
+      <form class="form-registration" [formGroup]="signupForm" (ngSubmit)="updateProduct()" novalidate>
+        <label>Titel</label>
+        <input  class="form-control"  placeholder="Titel" formControlName="title" [ngModel]="objects.title">
+
+        <label>Image URL</label>
+        <input  class="form-control" placeholder="Image URL" formControlName="image" [ngModel]="objects.image">
+
+        <label>Omschrijving</label>
+        <textarea  rows="3" class="form-control" placeholder="Omschrijving" formControlName="description" [ngModel]="objects.description"></textarea>
+
+        <label>Prijs</label>
+        <input  class="form-control" placeholder="Prijs" formControlName="price" [ngModel]="objects.price">
+
+        <label>Aantal in voorraad</label>
+        <input  class="form-control" placeholder="Aantal" formControlName="quantity" [ngModel]="objects.quantity">
+
+        <button class="btn btn-primary updateProduct-button" [disabled]="!signupForm.valid" type="submit">
+          <span>Update product</span>
+        </button>
+      </form>
+    </div>
+  </ng-container>
+</div>
+
+<div class="col-xs-12 col-md-6">
+  <ng-container *ngIf="product | async as totalObject">
+    <div *ngFor="let objects of totalObject">
+      <figure class="products-details">
+        <div class="product-image">
+          <img src="{{ objects.image }}" alt="boeket" width="100%">
+        </div>
+        <div class="product-title">
+          <h2>{{ objects.title }}</h2>
+        </div>
+        <div class="product-description">
+          {{ objects.description }}
+        </div>
+        <div class="product-price">
+          <p>Prijs: {{ objects.price }} €</p>
+        </div>
+      </figure>
+    </div>
+  </ng-container>
+</div>

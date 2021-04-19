@@ -33,6 +33,7 @@ exports.signup = async (req, res, next) => {
       postcode: postcode,
       street: street,
       password: hashedPassword,
+      isadmin: false,
     };
 
     const result = await User.save(userDetails);
@@ -73,11 +74,12 @@ exports.login = async (req, res, next) => {
         email: storedUser.email,
         userId: storedUser.id,
         userName: storedUser.name,
+        userRole: storedUser.isadmin,
       },
       'secretfortoken',
       { expiresIn: '1h' }
     );
-    res.status(200).json({ token: token, userId: storedUser.id, userName: storedUser.name});
+    res.status(200).json({ token: token, userId: storedUser.id, userName: storedUser.name, userRole: storedUser.isadmin});
   } catch (err) {
     if (!err.statusCode) {
       err.statusCode = 500;
@@ -86,3 +88,44 @@ exports.login = async (req, res, next) => {
   }
 };
 
+exports.fetchAll = async (req, res, next) => {
+  try {
+    const [allUsers] = await User.fetchAll();
+    res.status(200).json(allUsers);
+  } catch (err) {
+    if (!err.statusCode) {
+      console.log("error");
+      err.statusCode = 500;
+    }
+    next(err);
+  }
+};
+
+exports.update = async (req, res, next) => {
+
+  const btNr = req.body.btnNr;
+
+  try {
+    if(btNr === 1){
+      const up = await User.makeAdmin(req.params.id);
+    }
+    else{
+      if(req.params.id == 4){
+        const error = new Error('CEO cant be removed!');
+        error.statusCode = 500;
+        throw error;
+      }
+      else {
+        const down = await User.makeNotAdmin(req.params.id);
+      }
+    }
+
+    res.status(201).json({ message: 'Updated!' });
+
+  } catch (err) {
+    if (!err.statusCode) {
+      err.statusCode = 500;
+    }
+    next(err);
+  }
+};

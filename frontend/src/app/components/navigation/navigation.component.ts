@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AuthService } from 'src/app/services/auth.service';
-import {User} from "../../models/User";
 
 @Component({
   selector: 'app-navigation',
@@ -11,6 +10,7 @@ import {User} from "../../models/User";
 })
 export class NavigationComponent implements OnInit {
   isAuthenticated = false;
+  isAdmin = false;
 
   constructor(private authService: AuthService, private router: Router) {}
 
@@ -18,11 +18,15 @@ export class NavigationComponent implements OnInit {
     this.authService.isUserLoggedIn$.subscribe((isLoggedIn) => {
       this.isAuthenticated = isLoggedIn;
     });
+    this.authService.userRole.subscribe((isLoggedIn) => {
+      this.isAdmin = isLoggedIn;
+    });
   }
 
   logout(): void {
     localStorage.removeItem('token');
     this.authService.isUserLoggedIn$.next(false);
+    this.authService.userRole.next(false);
     this.authService.userName = null;
   }
 }

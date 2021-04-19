@@ -23,6 +23,9 @@
               <li data-active-if="Products">
                 <a routerLinkActive="active-link" routerLink="/products">Producten</a>
               </li>
+              <li data-active-if="Adminpanel">
+                <a *ngIf="isAdmin" routerLinkActive="active-link" routerLink="/adminpanel">Adminpanel</a>
+              </li>
               <li data-active-if="Login">
                 <a *ngIf="!isAuthenticated" routerLinkActive="active-link" routerLink="/login">Login</a>
               </li>
